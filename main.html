@@ -503,15 +503,17 @@
   });
 
   clearBtn.addEventListener("click", () => {
-    const tab = getActiveTab();
-    if (!tab) return;
+  const tab = getActiveTab();
+  if (!tab) return;
 
-    clearFormatting(tab.leftEditor);
-    clearFormatting(tab.rightEditor);
+  // Clear both editors entirely
+  clearEditor(tab.leftEditor);
+  clearEditor(tab.rightEditor);
 
-    statusMessage.textContent = "Ready to compare.";
-    statusMessage.classList.remove("status-ok", "status-diff");
-  });
+  statusMessage.textContent = "Cleared. Ready to compare.";
+  statusMessage.classList.remove("status-ok", "status-diff");
+ });
+
 
 
   createTab();
